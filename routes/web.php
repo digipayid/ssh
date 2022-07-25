@@ -5,6 +5,7 @@ use App\Http\Controllers\{
     DashboardController,
     DashboardDetailPengajuanController,
     DashboardPengajuanController,
+    ListUserController,
     LoginController,
     RegisterController
 };
@@ -21,9 +22,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [LoginController::class, 'index'])->name('login')->middleware('guest');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -38,3 +37,4 @@ Route::resource('/dashboard/pengajuan', DashboardPengajuanController::class)->mi
 Route::resource('/dashboard/mengajukan', DashboardDetailPengajuanController::class)->middleware('auth');
 
 Route::resource('/dashboard/admin', AdminDashboardController::class)->middleware('admin');
+Route::resource('/dashboard/users', ListUserController::class)->middleware('admin');

@@ -7,6 +7,12 @@
                 <div class="side-menu__title"> Dashboard </div>
             </a>
         </li>
+        <li>
+            <a href="/dashboard/users" class="side-menu {{ Request::is('dashboard/users*') ? 'side-menu--active' : '' }}">
+                <div class="side-menu__icon"> <i data-lucide="users"></i> </div>
+                <div class="side-menu__title"> Daftar User </div>
+            </a>
+        </li>
         @endcan
 
         @can('pengaju')

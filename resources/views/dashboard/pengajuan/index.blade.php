@@ -37,8 +37,10 @@
                             <td class="table-report__action w-40">
                                 @if ($pengajuan->status == 'Diterima')
                                     <div class="flex items-center text-success"> {{ $pengajuan->status }} </div>
-                                @else
+                                @elseif($pengajuan->status == 'Ditolak')
                                     <div class="flex items-center text-danger"> {{ $pengajuan->status }} </div>
+                                @else
+                                    <div class="flex items-center text-warning"> {{ $pengajuan->status }} </div>
                                 @endif
                             </td>
                             <td class="table-report__action">
